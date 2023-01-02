@@ -1,0 +1,62 @@
+
+spring:
+  profiles:
+    group: 
+      "local" : "local-set,common"
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: "common" 
+server:
+  port: 8088
+
+
+
+---
+
+spring:
+  
+  devtools:
+    livereload:
+      enabled: true
+  config:
+    activate:
+      on-profile: local-set
+          
+  datasource:
+   driver-class-name: oracle.jdbc.OracleDriver
+   url: jdbc:oracle:thin:@//localhost:1523/xe
+   username: logi5
+   password: logi5
+
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: group-id-oing
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+   
+ 
+mybatis:
+  mapper-locations: mybatis/**/*.xml
+  type-aliases-package: com.kafka.consumer
+  configuration:
+    map-underscore-to-camel-case: true
+ 
+ 
+logging:
+  level:
+    root: info
+    com:
+      kafkaTesting:
+        kafka: debug  
+      
+
