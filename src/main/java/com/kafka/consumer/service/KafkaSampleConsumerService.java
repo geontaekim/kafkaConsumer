@@ -14,9 +14,14 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class KafkaSampleConsumerService {
 	
-	 @KafkaListener(topics = "oingdaddy", groupId = "group-id-oing")
+	 @KafkaListener(topics = "guntae", groupId = "group-id-oing")
 	    public void consume(String message) throws IOException {
-	        System.out.println("receive message : " + message);
+		 	log.debug("csadsadsadsadsadsadsad");
+		 	
+		 	
+		 	
+	        log.debug("check:::::"+message);
+	        
 	        
 	        
 	        

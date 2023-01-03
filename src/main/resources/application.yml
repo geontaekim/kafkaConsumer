@@ -44,19 +44,11 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
    
- 
+
 mybatis:
   mapper-locations: mybatis/**/*.xml
   type-aliases-package: com.kafka.consumer
   configuration:
     map-underscore-to-camel-case: true
  
- 
-logging:
-  level:
-    root: info
-    com:
-      kafkaTesting:
-        kafka: debug  
-      
-
+  
