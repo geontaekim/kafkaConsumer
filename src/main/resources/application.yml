@@ -18,7 +18,7 @@ server:
 ---
 
 spring:
-  
+
   devtools:
     livereload:
       enabled: true
@@ -29,8 +29,8 @@ spring:
   datasource:
    driver-class-name: oracle.jdbc.OracleDriver
    url: jdbc:oracle:thin:@//localhost:1523/xe
-   username: logi5
-   password: logi5
+   username: scott
+   password: tiger
 
   kafka:
     consumer:
@@ -44,6 +44,12 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
    
+logging:
+  level:
+    root: info
+    com:
+      kafka:
+        consumer: debug  
 
 mybatis:
   mapper-locations: mybatis/**/*.xml

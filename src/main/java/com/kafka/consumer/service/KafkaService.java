@@ -28,6 +28,8 @@ public class KafkaService {
 		
 		log.debug("[checkResult]"+result);
 		
+		
+		
 		return result;
 		
 	} 
