@@ -6,7 +6,9 @@
 	
 	<select id = "selectEmpList"  resultType="java.util.HashMap" >
 	
-		SELECT * FROM CONTRACT
+		  <![CDATA[
+		SELECT* FROM EMP WHERE ROWNUM >= 1 AND ROWNUM <= 3 
+			 ]]>
 	
 	</select>
 		

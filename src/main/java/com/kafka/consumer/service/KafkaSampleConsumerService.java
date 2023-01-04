@@ -23,13 +23,12 @@ public class KafkaSampleConsumerService {
 	
 	 @KafkaListener(topics = "guntae", groupId = "group-id-oing")
 	    public void consume(String message) throws IOException, ParseException {
+		 
 		 	log.debug("check:::::"+message);
 		 	JSONObject json = new JSONObject(message);
 		 	log.debug("finalCheck:::"+json);
-		 	log.debug("json:::::"+json.get("ENAME"));
-		 	  
-	       
-	        
+		 	
+
 	    }
 	 
 	 

@@ -9,8 +9,8 @@ spring:
 spring:
   mvc:
     view:
-     prefix: /WEB-INF/views/
-     suffix: .jsp
+      prefix: /WEB-INF/views/
+      suffix: .jsp 
   config:
     activate:
       on-profile: "common" 

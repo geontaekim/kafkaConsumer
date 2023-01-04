@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,25 +28,28 @@ public class KafkaController {
 	private KafkaService kafkaService;
 	
 	 @PostMapping("/kafka")
-	public String kafka_test(@RequestBody String jsonData) throws Exception{
+	public ModelMap kafka_test() throws Exception{
 		 
-		  	log.debug("jsonData:::::"+jsonData);
-		  	JSONObject json =new JSONObject(jsonData);
-		  	log.debug("check::::"+json);
+		  	//log.debug("jsonData:::::"+jsonData);
+		  	//JSONObject json =new JSONObject(jsonData);
+		  	//log.debug("check::::"+json);
 		  	
 		  	HashMap<String, Object> params = new HashMap<>();
-		  	params.put("type", json.get("type"));
-		  	params.put("code", json.get("code"));
+		  	//params.put("type", json.get("type"));
+		  	//params.put("code", json.get("code"));
 		  	log.debug("check params:::{}"+params);
 		  	HashMap<String , Object> resultMap = new HashMap<>();
 		  	ArrayList<HashMap<String , Object>> list = new ArrayList();
 		  	list = kafkaService.selectEmpList(params);
-		  	
+		  	ModelMap map = new ModelMap();
 		  	log.debug("result::::"+list);
-		  
 		  	
+		  	map.put("dataList", list);
+			map.put("errorCode", 1);
+			map.put("errorMsg", "성공");
 		  	
-	        return list.toString();
+		  	return map;
+		  	 
 	    }
 	  
 		
