@@ -7,7 +7,7 @@
 	<select id = "selectEmpList"  resultType="java.util.HashMap" >
 	
 		  <![CDATA[
-		SELECT* FROM EMP WHERE ROWNUM >= 1 AND ROWNUM <= 3 
+		SELECT* FROM EMP 
 			 ]]>
 	
 	</select>
