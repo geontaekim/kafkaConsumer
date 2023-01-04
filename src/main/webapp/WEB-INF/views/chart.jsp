@@ -33,6 +33,10 @@
               paramAdd=[];
               for(let i =0; i<com.dataList.length; i++){
                 param= [ com.dataList[i]['ENAME'] , com.dataList[i]['SAL'] ];
+                //배열추가하는부분 flat없으면 그냥 배열하나로 합쳐짐
+                //ex> [1,2] push [3,4] (flat없을때) => [1,2,3,4]
+                //(flat있을때)=> [[1,2],[3,4]]
+                
                 paramAdd.push(param.flat([]));
                 
               }
