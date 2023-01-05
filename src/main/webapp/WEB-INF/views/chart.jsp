@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
   <html>
-
+	<link rel="stylesheet" href="../css/chart.css" />
   <head>
     <!--Load the AJAX API-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -19,11 +19,6 @@
       // Set a callback to run when the Google Visualization API is loaded.
       google.charts.setOnLoadCallback(drawChart);
 
-      // Callback that creates and populates a data table,
-      // instantiates the pie chart, passes in the data and
-      // draws it.
-
-
       function ajaxData() {
           
           $.ajax({
@@ -33,10 +28,8 @@
               paramAdd=[];
               for(let i =0; i<com.dataList.length; i++){
                 param= [ com.dataList[i]['ENAME'] , com.dataList[i]['SAL'] ];
-                //배열추가하는부분 flat없으면 그냥 배열하나로 합쳐짐
-                //ex> [1,2] push [3,4] (flat없을때) => [1,2,3,4]
-                //(flat있을때)=> [[1,2],[3,4]]
                 
+                //배열합치기
                 paramAdd.push(param.flat([]));
                 
               }
@@ -60,7 +53,7 @@
 
         // Set chart options
         var options = {
-          'title': 'How Much Payment EMP',
+          'title': '직원별 급여',
           'width': 1000,
           'height': 700
         }
@@ -74,9 +67,34 @@
   </head>
 
   <body>
-    <!--Div that will hold the pie chart-->
-    <div id="chart_div"></div>
+     <div id="header" role="banner">
+     
+    <a href="/chart/view"><img src="../img/renike.png" class="img_logo"/></a>
+    <form>
+      <fieldset>
+        <legend class="visually-hidden">검색</legend>
+        <div class="search_box">
+          <input type="text" maxlength="225" tabindex="1" />
+          <button type="submit" tabindex="2">
+            검색
+          </button>
+        </div>
+      </fieldset>
+    </form>
+     
+     
+     </div>
+  <div id="main" role="main">
+  			<div id="chart_div"></div>
     <div id="chart_div2"></div>
+  
+  
+  </div>
+  		
+  <div id="footer" role="contentinfo">하단</div>
+    
+    <!--Div that will hold the pie chart-->
+    
   </body>
 
   </html>

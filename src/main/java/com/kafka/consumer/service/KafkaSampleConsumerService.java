@@ -1,14 +1,9 @@
 package com.kafka.consumer.service;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-
 
 import org.json.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
@@ -23,11 +18,12 @@ public class KafkaSampleConsumerService {
 	
 	 @KafkaListener(topics = "guntae", groupId = "group-id-oing")
 	    public void consume(String message) throws IOException, ParseException {
-		 
+			
 		 	log.debug("check:::::"+message);
 		 	JSONObject json = new JSONObject(message);
 		 	log.debug("finalCheck:::"+json);
-		 	
+
+
 
 	    }
 	 
