@@ -27,6 +27,7 @@ public class KafkaSampleConsumerService {
 	    public void consume(@RequestBody String message) throws IOException, ParseException {
 		 	log.debug("check::{}"+message);
 		 	
+			
 		 	//ArrayList<HashMap<String, String>> ss =(ArrayList<HashMap<String, String>>)sss;
 		 	//log.debug("ss::::"+ss);
 		 	//mapper.readValue(message, new TypeReference<ArrayList<HashMap<String,String>>>(){});
