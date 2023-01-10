@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface KafkaMapper {
 	
-	public ArrayList<HashMap<String,Object>> selectEmpList();
+	public ArrayList<HashMap<String,Object>> selectEmpList(HashMap<String,Object> map);
 	
 	  public int save(HashMap<String,Object> map);
 

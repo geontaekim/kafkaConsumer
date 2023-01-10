@@ -1,14 +1,15 @@
 package com.kafka.consumer.vo;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import lombok.Data;
 
 @Data
 public class KafkaVo {
 	
-	private String kafTesSn;
-	private String kafTesSn2;
-	private String kafTesSn3;
-	private String kafTesSn4;
-	private String kafTesSn5;
-
+	 private String productName;
+	    private Integer price;
+	    private ArrayList<HashMap<String,Object>> params;
+	    
 }

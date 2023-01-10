@@ -4,11 +4,15 @@
 	<mapper namespace="com.kafka.consumer.mapper.KafkaMapper">
 	
 	
-	<select id = "selectEmpList"  resultType="java.util.HashMap" >
-	
-		  <![CDATA[
-		SELECT* FROM EMP 
-			 ]]>
+	<select id = "selectEmpList" parameterType="java.util.HashMap" resultType="java.util.HashMap" >
+		  
+		  SELECT * FROM EMP
+		  where 1=1
+		  <if test="@com.kafka.consumer.utils.MybatisUtil@notEmpty(ename)">
+   			 and ENAME=#{ename}
+   			 
+			</if>
+
 	
 	</select>
 		

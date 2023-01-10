@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kafka.consumer.service.KafkaService;
 
 import lombok.RequiredArgsConstructor;
@@ -28,14 +29,18 @@ public class KafkaController {
 	private KafkaService kafkaService;
 	
 	 @PostMapping("/kafka")
-	public ModelMap kafka_test() throws Exception{
+	public ModelMap kafka_test(@RequestBody String pam) throws Exception{
 		 
-		  	//log.debug("jsonData:::::"+jsonData);
-		  	//JSONObject json =new JSONObject(jsonData);
-		  	//log.debug("check::::"+json);
-		  	
+		 	log.debug("pam::::"+pam);
+		 	
+		  	JSONObject jsonData =new JSONObject(pam);
+		  	//log.debug("check::::"+jsonData);
+		  	//ObjectMapper obj = new ObjectMapper();
+		  	//HashMap<String,String> map = obj.readValue(pam,HashMap.class );
+		  	//log.debug("check:::::"+map);
+		 	
 		  	HashMap<String, Object> params = new HashMap<>();
-		  	//params.put("type", json.get("type"));
+		  	params.put("ename", jsonData.get("ENAME"));
 		  	//params.put("code", json.get("code"));
 		  	log.debug("check params:::{}"+params);
 		  	HashMap<String , Object> resultMap = new HashMap<>();

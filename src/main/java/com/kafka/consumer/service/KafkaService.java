@@ -24,7 +24,7 @@ public class KafkaService {
 	public ArrayList<HashMap<String , Object>> selectEmpList(HashMap<String,Object> map){
 		log.debug("[selectEmpList][work]");
 		log.debug("[selectEmpList][check map]:::{}"+map);
-		ArrayList<HashMap<String , Object>> result=kafkamapper.selectEmpList();
+		ArrayList<HashMap<String , Object>> result=kafkamapper.selectEmpList(map);
 		
 		log.debug("[checkResult]"+result);
 		
